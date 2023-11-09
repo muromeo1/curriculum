@@ -1,14 +1,15 @@
 import cn from "classnames";
 
 interface TypographyProps {
-  text: string;
+  text?: string;
+  children?: React.ReactNode;
 }
 
 const Headline = ({ text }: TypographyProps) => (
   <h1
     className={cn(
-      "font-display text-4xl lg:text-6xl font-bold",
-      "uppercase text-slate-100"
+      "font-display text-4xl lg:text-6xl",
+      "font-bold uppercase text-slate-100"
     )}
   >
     {text}
@@ -22,8 +23,19 @@ const Header = ({ text }: TypographyProps) => (
 );
 
 const Body = ({ text }: TypographyProps) => (
-  <h1 className={cn("font-display text-2xl font-medium text-slate-300")}>
+  <h1
+    className={cn(
+      "font-display text-2xl uppercase",
+      "font-medium text-slate-300"
+    )}
+  >
     {text}
+  </h1>
+);
+
+const Description = ({ text, children }: TypographyProps) => (
+  <h1 className={cn("font-display text-lg font-thin text-slate-300")}>
+    {text || children}
   </h1>
 );
 
@@ -31,6 +43,7 @@ const Typography = {
   Headline,
   Header,
   Body,
+  Description,
 };
 
 export default Typography;
