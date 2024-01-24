@@ -42,7 +42,8 @@ const Modal = ({ open, setOpen, title, children }: ModalProps) => {
               className={cn(
                 "flex flex-col gap-4 lg:max-w-[100vh] min-h-[40vh] transform",
                 "lg:rounded-2xl bg-zinc-800 overflow-y-auto align-middle shadow-xl",
-                "py-[60px] lg:px-[80px] px-[40px] lg:h-full h-screen transition-all"
+                "py-[60px] lg:px-[80px] px-[40px] lg:w-full lg:h-full",
+                "w-screen h-screen transition-all"
               )}
             >
               <Dialog.Title className="text-center mb-3">
@@ -56,7 +57,7 @@ const Modal = ({ open, setOpen, title, children }: ModalProps) => {
                 onClick={onClose}
               />
 
-              {children}
+              <div className="flex flex-col gap-8">{children}</div>
             </Dialog.Panel>
           </Transition.Child>
         </div>
